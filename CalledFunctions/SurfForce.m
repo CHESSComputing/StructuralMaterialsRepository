@@ -1,0 +1,23 @@
+function fes =SurfForce(nnps,nqpts,swt,bigNsurf,rjs,surf_trac,surf_momenttrac)
+%
+% called by ComputeForceMatrices
+%
+% computes surface force matrix for traction loading 
+
+
+iend=3*nnps;
+fes= zeros(iend,1);
+fesqp= zeros(iend,1);
+bigNsqp = zeros(3,iend);
+
+  
+for j=1:1:nqpts  
+	
+  xkfac=swt(j)*rjs(j);
+  bigNsqp(:,:) = bigNsurf(:,:,j);
+  moment_trac = surf_momenttrac(j,:);
+  fesqp = xkfac*(bigNsqp'*(surf_trac+moment_trac'));
+  fes = fes + fesqp;
+
+end
+
