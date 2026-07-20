@@ -79,7 +79,7 @@ function status = PlotModuliConvergence(residual_history,sx_moduli_history,sx_co
     xlabel(ab_label); 
     ylabel(ord_label);   
     title(plot_title); 
-    legend('c11', 'c12', 'c33' );
+    legend('c11', 'c12', 'c44' );
     
     maxcompliance = 1.5*max(sx_compliance_history(:,1));
     
@@ -112,7 +112,7 @@ function status = PlotModuliConvergence(residual_history,sx_moduli_history,sx_co
     xlabel(ab_label); 
     ylabel(ord_label);   
     title(plot_title); 
-    legend('s11', 's12', 's33' );
+    legend('s11', 's12', 's44' );
         
     hold 'off'
     
